@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторський розпис та Майстер-класи | Юлія</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf8f5;
+            --card-bg: #ffffff;
+            --accent-teal: #1a5b6e;
+            --accent-gold: #c5a059;
+            --text-main: #2c3e50;
+            --text-muted: #667788;
+            --border-color: #e8e2d8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--accent-teal);
+        }
+
+        /* Header / Nav */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f7f3ec 0%, #edf4f5 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-teal);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #134554;
+            transform: translateY(-2px);
+        }
+
+        /* General Section */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+            margin: 0.5rem auto 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* Grid Cards (Shop & Workshops) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 220px;
+            background-color: #e6ede6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-teal);
+            font-style: italic;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-price {
+            font-weight: 600;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Reviews */
+        .review-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-gold);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .review-author {
+            font-weight: 600;
+            margin-top: 1rem;
+            color: var(--accent-teal);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent-teal);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Юлія | Art Studio</a>
+            <ul class="nav-links">
+                <li><a href="#about">Про мене</a></li>
+                <li><a href="#workshops">Майстер-класи</a></li>
+                <li><a href="#shop">Магазин шоперів</a></li>
+                <li><a href="#reviews">Відгуки</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Ручний розпис одягу та шоперів</h1>
+        <p>Створюю унікальні речі з характером та навчаю мистецтву текстильного розпису в Полтаві.</p>
+        <a href="#contacts" class="btn">Записатися / Замовити</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Про мене</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Вітаю! Мене звати <strong>Юлія</strong>. Я майстриня та художниця, яка закохана в текстильний розпис.</p>
+                <p>Кожен шопер чи елемент одягу, створений у моїй майстерні — це ручна робота, витончений дизайн та якісні професійні фарби. Також я проводжу затишні арт-майстер-класи, де кожен бажаючий може створити свій власний шедевр.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="workshops">
+        <h2 class="section-title">Майстер-класи та Послуги</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img">Фото МК</div>
+                <div class="card-body">
+                    <h3 class="card-title">Груповий МК з розпису шоперів</h3>
+                    <p>Створіть свій унікальний еко-шопер за пару годин. Всі матеріали включено у вартість.</p>
+                    <div class="card-price">від 500 грн</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">Фото послуги</div>
+                <div class="card-body">
+                    <h3 class="card-title">Індивідуальний розпис одягу</h3>
+                    <p>Кастомізація вашої улюбленої джинсовки, футболки чи худі за вашим ескізом.</p>
+                    <div class="card-price">За домовленістю</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop">
+        <h2 class="section-title">Магазин готових робіт</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img">Фото шопера 1</div>
+                <div class="card-body">
+                    <h3 class="card-title">Шопер "Ботаніка"</h3>
+                    <p>Ручний розпис, 100% бавовна, стійкі фарби.</p>
+                    <div class="card-price">650 грн</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">Фото шопера 2</div>
+                <div class="card-body">
+                    <h3 class="card-title">Шопер "Авторський візерунок"</h3>
+                    <p>Ексклюзивний арт-принт, витончені лінії.</p>
+                    <div class="card-price">700 грн</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2 class="section-title">Відгуки</h2>
+        <div class="review-card">
+            <p>«Неймовірно тепло зануритися в атмосферу творчості! Шопер вийшов дуже гарним, фарби тримаються чудово після прання. Обов'язково прийду ще!»</p>
+            <div class="review-author">— Олена</div>
+        </div>
+        <div class="review-card">
+            <p>«Дякую Юлії за чудовий майстер-клас! Все доступно пояснила, допомогла з ескізом. Рекомендую всім!»</p>
+            <div class="review-author">— Марина</div>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <h2 class="section-title">Контакти та Запис</h2>
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+            Бажаєте придбати шопер або записатися на найближчий майстер-клас? Напишіть мені в Instagram!
+        </p>
+        <div style="text-align: center;">
+            <a href="https://instagram.com" target="_blank" class="btn">Перейти в Instagram</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Юлія. Всі права захищено.</p>
+    </footer>
+
+</body>
+</html>
